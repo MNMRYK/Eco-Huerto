@@ -1,0 +1,325 @@
+/* =========================================
+   1. CONFIGURACIÓN Y VARIABLES
+   ========================================= */
+:root {
+    --verde-principal: #2d5a27;
+    --verde-claro: #8eb057;
+    --naranja-accent: #f2994a;
+    --blanco-fondo: #f9fbf9;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    line-height: 1.6;
+    background-color: var(--blanco-fondo);
+    color: #333;
+}
+
+/* =========================================
+   2. ESTRUCTURA GLOBAL (LAYOUT)
+   ========================================= */
+.seccion {
+    padding: 100px 20px;
+    text-align: center;
+    min-height: 500px;
+}
+
+.seccion-alterna {
+    background-color: #f2f7f2; 
+    padding: 100px 20px;
+}
+
+.menu-fijo {
+    background: rgba(255, 255, 255, 0.95);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.menu-fijo ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 15px;
+    margin: 0;
+}
+
+.menu-fijo a {
+    text-decoration: none;
+    color: var(--verde-principal);
+    margin: 0 20px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+/* =========================================
+   3. COMPONENTES REUTILIZABLES
+   ========================================= */
+.subtitulo {
+    color: var(--verde-claro);
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.boton-accion {
+    background-color: var(--naranja-accent);
+    color: white;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+
+.boton-accion:hover {
+    background-color: #e67e22;
+    transform: scale(1.05);
+}
+
+/* =========================================
+   4. SECCIÓN HERO
+   ========================================= */
+.hero-fruteria {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+        url('https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.contenido-hero {
+    margin-top: -80px;
+}
+
+.contenido-hero h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+}
+
+.contenido-hero p {
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+/* =========================================
+   5. SECCIÓN HISTORIA
+   ========================================= */
+.contenedor-historia {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    text-align: left;
+}
+
+.texto-historia { flex: 1.2; }
+.imagen-historia { flex: 0.8; }
+
+.imagen-historia img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 20px 20px 0 var(--verde-claro); 
+}
+
+.puntos-clave {
+    margin-top: 30px;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    border-left: 6px solid var(--naranja-accent);
+}
+
+.puntos-clave p {
+    margin: 12px 0 !important;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--verde-principal);
+}
+
+.puntos-clave i { color: var(--naranja-accent); }
+
+/* =========================================
+   6. SECCIÓN PRODUCTOS
+   ========================================= */
+.contenedor-productos {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.tarjeta-fruta {
+    background: white;
+    width: 280px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    transition: 0.3s;
+    border: 1px solid #f0f0f0;
+}
+
+.tarjeta-fruta:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(45, 90, 39, 0.1);
+}
+
+.foto-producto {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+}
+
+.tarjeta-fruta h3 {
+    margin: 20px 0 10px;
+    color: var(--verde-principal);
+}
+
+.tarjeta-fruta p {
+    padding: 0 20px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.precio {
+    display: block;
+    margin: 15px 0 25px;
+    font-weight: bold;
+    color: var(--naranja-accent);
+    font-size: 1.2rem;
+}
+
+/* =========================================
+   7. FORMULARIO CONTACTO
+   ========================================= */
+.form-fruteria {
+    max-width: 600px;
+    margin: 40px auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-fruteria input, .form-fruteria select, .form-fruteria textarea {
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-family: inherit;
+}
+
+.boton-enviar-fruta {
+    background-color: var(--verde-principal);
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.boton-enviar-fruta:hover { background-color: var(--verde-claro); }
+
+/* =========================================
+   8. FOOTER Y REDES
+   ========================================= */
+.footer-fruteria {
+    background-color: #1a3317;
+    color: white;
+    padding: 50px 20px 20px;
+    text-align: center;
+}
+
+.redes-f {
+    margin: 25px 0;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.redes-f a { display: inline-block; transition: 0.3s; }
+
+.fa-facebook { color: #1877F2; }
+.fa-instagram { color: #E1306C; }
+.fa-whatsapp { color: #25D366; }
+
+.redes-f a i {
+    font-size: 1.8rem;
+    transition: 0.3s;
+}
+
+.redes-f a:hover i {
+    transform: scale(1.3);
+    color: white; 
+}
+
+.copyright a {
+    color: var(--naranja-accent);
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.copyright a:hover { color: #ff0000; text-decoration: underline; }
+
+/* =========================================
+   9. JAVA SCRIPT (INTERACTIVIDAD)
+   ========================================= */
+/* 1. Estado invisible inicial */
+.hero-fruteria, .seccion-alterna, .seccion, .footer-fruteria {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+/* 2. Estado visible cuando el JS añade la clase */
+.hero-fruteria.visible, 
+.seccion-alterna.visible, 
+.seccion.visible, 
+.footer-fruteria.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* =========================================
+   10. RESPONSIVE (MEDIA QUERIES)
+   ========================================= */
+@media (max-width: 768px) {
+    .contenido-hero h1 { font-size: 2.5rem; }
+    
+    .contenedor-historia {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .imagen-historia { order: 2; }
+
+    .tarjeta-fruta {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .menu-fijo ul { gap: 10px; }
+    .menu-fijo a { margin: 0 10px; font-size: 0.9rem; }
+}
